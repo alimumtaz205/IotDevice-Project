@@ -1,0 +1,49 @@
+{
+  "Device": [
+    {
+      "deviceId": 12,
+      "deviceName": "Stm32",
+      "status": false,
+      "Active": "Inactive",
+      "description": "device",
+      "serialNumber": "34543",
+      "model": "2022",
+      "softwareVersion": "2",
+      "totalSensors": "2",
+      "createdBy": "admin"
+    },
+    {
+      "deviceId": 13,
+      "deviceName": "Renesas",
+      "status": true,
+      "description": "device",
+      "serialNumber": "34543",
+      "model": "2022",
+      "softwareVersion": "2",
+      "totalSensors": "2",
+      "createdBy": "admin"
+    },
+    {
+      "deviceId": 14,
+      "deviceName": "Nxp",
+      "status": false,
+      "description": "device",
+      "serialNumber": "34543",
+      "model": "2022",
+      "softwareVersion": "2",
+      "totalSensors": "2",
+      "createdBy": "admin"
+    },
+    {
+      "deviceId": 15,
+      "deviceName": "TI",
+      "status": true,
+      "description": "device",
+      "serialNumber": "34543",
+      "model": "2022",
+      "softwareVersion": "2",
+      "totalSensors": "2",
+      "createdBy": "admin"
+    }
+  ]
+}

@@ -1,0 +1,80 @@
+/* You can add global styles to this file, and also import other style files */
+@import "../node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css";
+@import "../node_modules/alertifyjs/build/css/alertify.min.css";
+@import "../node_modules/alertifyjs/build/css/themes/bootstrap.min.css";
+
+
+/* Provide sufficient contrast against white background */
+a {
+  color: #0366d6;
+}
+
+.row {
+    margin-top:32px;
+}
+
+.mat-tab-body-active .mat-tab-body-content {
+  overflow: hidden !important;
+}
+code {
+  color: #e01a76;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+html, body { height: 100%; }
+body {
+  background-color: #f2f2f2;
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+/*
+mat-cell, mat-header-cell, mat-footer-cell {
+  margin-left: 10px;
+}*/
+
+/*.mat-paginator-container {
+  height: 60px !important;
+  margin-bottom: -8px !important;
+}*/
+
+/*mat-row, mat-footer-row {
+  min-height: 40px !important;
+}
+
+.mat-header-row {
+  min-height: 45px !important;
+}*/
+
+.mat-toolbar-row {
+  background-color: #808080;
+  color: #ffffff;
+}
+
+  .mat-toolbar-row .btn {
+    color: #ffffff;
+  }
+
+footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #808080;
+  height: auto;
+  width: 100vw;
+  padding-top: 40px;
+  color: #fff;
+  text-align: center;
+}
+
+.footer-content a {
+  font-size: 2.1rem;
+  font-weight: 500;
+  text-transform: capitalize;
+  line-height: 3rem;
+}

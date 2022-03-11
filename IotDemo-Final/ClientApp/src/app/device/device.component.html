@@ -1,0 +1,81 @@
+<div class="container">
+  <mat-toolbar>
+    <mat-toolbar-row>
+      <!--<mat-icon>subject</mat-icon>-->
+
+      <div class="col-2">
+        <mat-form-field>
+          <input matInput (keyup)="applyFilter($event)" id="filterEelement" placeholder="Enter to search...">
+          <!--<mat-icon>search</mat-icon>-->
+        </mat-form-field>
+      </div>
+
+      <div class="col-10 text-right">
+        <button mat-raised-button color="primary" class="btn btn-success" (click)="addDevice()">
+          <!--<mat-icon>add</mat-icon>-->
+          Add Device
+        </button>
+        <!--<button mat-raised-button color="primary" matTooltip="Export to Excel" class="ml-2" (click)="onExportToCsv()">
+          Export
+          <mat-icon>description</mat-icon>
+        </button>
+        <button mat-raised-button color="primary" matTooltip="Refresh" class="ml-2" (click)="onRefersh()">
+          Refresh
+          <mat-icon>refresh</mat-icon>
+        </button>-->
+      </div>
+
+    </mat-toolbar-row>
+  </mat-toolbar>
+  <div class="row mt-3">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+      <div class="mat-elevation-z8" [style.height]="gridHeight">
+
+        <table mat-table *ngIf="datasource" [dataSource]="datasource" matSort class="table" id="excel-table">
+
+          <ng-container *ngFor="let column of columns" [matColumnDef]="column.columnDef">
+
+            <mat-header-cell *matHeaderCellDef mat-sort-header [style.min-width]="column?.width"
+                             [style.max-width]="column?.width" [style.display]="column?.hide === true ? 'none' : ''">
+              {{ column.header }}
+            </mat-header-cell>
+            <mat-cell *matCellDef="let row" [style.min-width]="column?.width" [style.max-width]="column?.width">
+              <div *ngIf="column.columnDef !== 'action'">
+                {{column.cell(row)}}
+
+              </div>
+
+              <!--<div *ngIf="column.columnDef === 'action'" class="table-edit">
+                <a style="cursor: pointer;" (click)="updateDevice(row)" matTooltip="Update Device">
+                  <mat-icon>edit</mat-icon>
+                </a>
+              </div>
+
+
+              <div *ngIf="column.columnDef === 'action'" class="table-delete">
+                <a style="cursor: pointer;" (click)="onDelete(row)" matTooltip="Delete">
+                  <mat-icon>delete</mat-icon>
+                </a>
+              </div>-->
+
+              <div *ngIf="column.columnDef === 'action'" class="table-edit">
+                <a style="cursor: pointer;" (click)="viewDevice(row)" matTooltip="View Device">
+                  <mat-icon>view_list</mat-icon>
+                </a>
+              </div>
+
+
+            </mat-cell>
+          </ng-container>
+          <mat-header-row *matHeaderRowDef="displayedColumn; sticky:true"></mat-header-row>
+          <mat-row *matRowDef="let row; columns: displayedColumn;" (mouseover)="row.hovered = true"
+                   (mouseout)="row.hovered = false" [ngClass]="{hovered: row.hovered,  highlighted: selection.isSelected(row)}"
+                   (click)="selection.select(row)" class="element-row" matRipple></mat-row>
+        </table>
+      </div>
+      <mat-paginator pageSize="10" [pageSizeOptions]="[5, 10, 20, 50, 100, 500]" showFirstLastButtons></mat-paginator>
+
+    </div>
+  </div>
+  </div>

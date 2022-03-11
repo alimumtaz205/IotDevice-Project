@@ -1,0 +1,18 @@
+.card {
+  display: flex;
+  width: 100%;
+  word-wrap: break-word;
+  background-color: #fff;
+  background-clip: border-box;
+  border: 1px solid rgba(0,0,0,.125);
+  border-radius: 0.25rem
+}
+.container {
+  padding: 60px;
+}
+.form-group {
+  width: 100%;
+  padding: 15px;
+}
+
+

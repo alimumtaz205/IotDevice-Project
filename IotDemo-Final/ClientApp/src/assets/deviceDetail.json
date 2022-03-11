@@ -1,0 +1,25 @@
+{
+  "Device": [
+    {
+      "deviceID": 12,
+      "deviceName": "Device 1",
+      "status": false,
+      "Active": "Inactive",
+      "description": "device",
+      "serialNumber": "34543",
+      "model": "2022",
+      "softwareVersion": "2",
+      "totalSensors": "3",
+      "createdBy": "admin",
+      "Sensors": [
+        {
+          "Temperature": 12,
+          "Heat": 14,
+          "Object_presence": 15,
+          "Humidity": 23
+        }
+      ]
+    }
+  ]
+}
+

@@ -1,0 +1,75 @@
+
+    <!--<h1 *ngIf="isAddMode">Add User</h1>
+    <h1 *ngIf="!isAddMode">Edit User</h1>-->
+<!--<h3>{{service.TitleText}}</h3>>-->
+
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <div class="form-row">
+    <div class="form-group col">
+      <label for="deviceName">Device Id</label>
+      <input type="text" formControlName="deviceId" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.deviceId.errors }" />
+      <div *ngIf="submitted && f.deviceId.errors" class="invalid-feedback">
+        <div *ngIf="f.deviceId.errors.required">Device Id is required</div>
+      </div>
+    </div>
+    <div class="form-group col">
+      <label for="name">Device Name</label>
+      <input type="text" formControlName="name" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.name.errors }" />
+      <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
+        <div *ngIf="f.name.errors.required">Device Name is required</div>
+      </div>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col">
+      <label for="description">Description</label>
+      <input type="text" formControlName="description" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.description.errors }" />
+      <div *ngIf="submitted && f.description.errors" class="invalid-feedback">
+        <div *ngIf="f.description.errors.required">Description is required</div>
+      </div>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col">
+      <label for="make">Make</label>
+      <input type="text" formControlName="make" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.make.errors }" />
+      <!--<div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+        <div *ngIf="f.username.errors.required">Username is required</div>
+      </div>-->
+    </div>
+
+    <div class="form-group col">
+      <label for="make">Software Version</label>
+      <input type="text" formControlName="softwareVersion" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.softwareVersion.errors }" />
+      <!--<div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+        <div *ngIf="f.username.errors.required">Username is required</div>
+      </div>-->
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col">
+      <label for="make">Sensors Name</label>
+      <input type="text" formControlName="sensorsName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.sensorsName.errors }" />
+      <!--<div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+      <div *ngIf="f.username.errors.required">Username is required</div>
+    </div>-->
+    </div>
+    <!--<div class="form-group col">
+        <label for="make">Created By</label>
+        <input type="text" formControlName="createdBy" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.createdBy.errors }" />-->
+        <!--<div *ngIf="submitted && f.createdBy.errors" class="invalid-feedback">
+        <div *ngIf="f.createdBy.errors.required">Username is required</div>
+        </div>-->
+  <!--</div>-->
+  </div>
+
+  <div class="form-group">
+    <span>
+      <button [disabled]="loading" class="btn btn-success">
+        <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+        Save
+      </button>
+    </span>
+
+  </div>
+</form>

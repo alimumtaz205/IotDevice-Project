@@ -1,0 +1,85 @@
+<div class="container">
+  <mat-toolbar>
+    <mat-toolbar-row>
+      <!--<mat-icon>subject</mat-icon>-->
+      <div class="col-2">
+
+        <!--<input matInput (keyup)="applyFilter($event)" id="filterEelement" placeholder="Enter to search...">-->
+        <h5>DEVICE DETAIL</h5>
+        <!--<mat-icon>search</mat-icon>-->
+
+      </div>
+
+      <div class="col-10 text-right">
+        <button mat-raised-button class="btn btn-success" (click)="backDashboard()">
+          <!--<mat-icon>add</mat-icon>-->
+          Back
+        </button>
+
+      </div>
+
+    </mat-toolbar-row>
+  </mat-toolbar>
+
+  <!--<mat-form-field appearance="fill">
+    <mat-label>Enter a date range</mat-label>
+    <mat-date-range-input [rangePicker]="picker">
+      <input matStartDate placeholder="Start date">
+      <input matEndDate placeholder="End date">
+    </mat-date-range-input>
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-date-range-picker #picker></mat-date-range-picker>
+  </mat-form-field>-->
+
+
+  <mat-card class="table-detail">
+    <div class="row">
+      <!--Table Area-->
+      <div class="col-5">
+        <div class="table-responsive">
+          <!--<table class="table table-centered table-hover mb-0" *ngFor="let device of deviceList; let i = index">-->
+          <table class="table table-centered table-hover mb-0">
+            <thead>{{deviceDetail.deviceId}}</thead>
+            <tr>
+              <th>Device Name:</th>
+              <td>{{deviceDetail.description}}</td>
+            </tr>
+            <tr>
+              <th>Description:</th>
+              <td>{{deviceDetail.description}}</td>
+            </tr>
+            <tr>
+              <th>Current Version:</th>
+              <td>{{deviceDetail.currentVersion}}</td>
+            </tr>
+            <tr>
+              <th>Is Update Available:</th>
+              <td>{{isUpdateAvailable.name}}</td>
+            </tr>
+            <tr>
+              <th>Updated Version:</th>
+              <td>{{device.updatedVersion}}</td>
+            </tr>
+            <tr>
+              <th>softwareVersion:</th>
+              <td>{{device.name}}</td>
+            </tr>
+
+          </table>
+        </div>
+      </div>
+      <div class="col-7">
+
+        <div style="text-align:center">
+          <apx-chart [series]="chartOptions.series"
+                     [chart]="chartOptions.chart"
+                     [xaxis]="chartOptions.xaxis"
+                     [title]="chartOptions.title"></apx-chart>
+        </div>
+      </div>
+
+
+    </div>
+  </mat-card>
+</div>
+  <!--</form>-->

@@ -1,0 +1,24 @@
+<div class="row">
+  <div class="col-11">
+    <h5>Device onBoarding</h5>
+  </div>
+    <div class="col-1">
+      <button md-raised-button class="btn btn-danger" tooltip="Close" (click)="onClose()">
+        <mat-icon>close</mat-icon>
+      </button>
+    
+  </div>
+  </div>
+<hr />
+<mat-tab-group class="mat-tab">
+  <mat-tab label="Add Single Device">
+
+    <app-add-device></app-add-device>
+  </mat-tab>
+
+  <mat-tab label="Add Bulk">
+    <app-bluck-upload></app-bluck-upload>
+  </mat-tab>
+</mat-tab-group>
+
+

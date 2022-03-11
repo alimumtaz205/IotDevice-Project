@@ -1,0 +1,10 @@
+{
+  "Sensors": [
+    {
+      "Temperature": 12,
+      "Heat": 14,
+      "Object_presence": 15,
+      "Humidity": 23
+    }
+  ]
+}
