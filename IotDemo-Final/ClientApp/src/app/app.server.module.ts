@@ -11,11 +11,6 @@ import { DeviceComponent } from './device/device.component';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    LoginComponent,
-    DeviceComponent,
-    AddDeviceComponent,
-    DeviceChartComponent
   ],
 
     imports: [AppModule, ServerModule, ModuleMapLoaderModule],

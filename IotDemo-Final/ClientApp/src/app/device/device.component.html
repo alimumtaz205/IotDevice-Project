@@ -3,34 +3,35 @@
     <mat-toolbar-row>
       <!--<mat-icon>subject</mat-icon>-->
 
-      <div class="col-2">
+      <div class="col-9">
         <mat-form-field>
           <input matInput (keyup)="applyFilter($event)" id="filterEelement" placeholder="Enter to search...">
           <!--<mat-icon>search</mat-icon>-->
         </mat-form-field>
       </div>
 
-      <div class="col-10 text-right">
-        <button mat-raised-button color="primary" class="btn btn-success" (click)="addDevice()">
+      <div class="col-3">
+        <button mat-raised-button class="btn btn-primary" (click)="addDevice()">
           <!--<mat-icon>add</mat-icon>-->
           Add Device
         </button>
-        <!--<button mat-raised-button color="primary" matTooltip="Export to Excel" class="ml-2" (click)="onExportToCsv()">
-          Export
-          <mat-icon>description</mat-icon>
-        </button>
-        <button mat-raised-button color="primary" matTooltip="Refresh" class="ml-2" (click)="onRefersh()">
+        <button mat-raised-button class="btn btn-primary" (click)="onRefersh()">
+          <!--<mat-icon>add</mat-icon>-->
           Refresh
-          <mat-icon>refresh</mat-icon>
+        </button>
+
+        <!--<button mat-raised-button class="btn btn-log" (click)="logOut()">-->
+          <!--<mat-icon>add</mat-icon>-->
+          <!--Logout
         </button>-->
       </div>
 
-    </mat-toolbar-row>
+</mat-toolbar-row>
   </mat-toolbar>
-  <div class="row mt-3">
+  <div class="row mt-4">
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 
-      <div class="mat-elevation-z8" [style.height]="gridHeight">
+      <div class="mat-elevation-z8">
 
         <table mat-table *ngIf="datasource" [dataSource]="datasource" matSort class="table" id="excel-table">
 
@@ -45,19 +46,6 @@
                 {{column.cell(row)}}
 
               </div>
-
-              <!--<div *ngIf="column.columnDef === 'action'" class="table-edit">
-                <a style="cursor: pointer;" (click)="updateDevice(row)" matTooltip="Update Device">
-                  <mat-icon>edit</mat-icon>
-                </a>
-              </div>
-
-
-              <div *ngIf="column.columnDef === 'action'" class="table-delete">
-                <a style="cursor: pointer;" (click)="onDelete(row)" matTooltip="Delete">
-                  <mat-icon>delete</mat-icon>
-                </a>
-              </div>-->
 
               <div *ngIf="column.columnDef === 'action'" class="table-edit">
                 <a style="cursor: pointer;" (click)="viewDevice(row)" matTooltip="View Device">

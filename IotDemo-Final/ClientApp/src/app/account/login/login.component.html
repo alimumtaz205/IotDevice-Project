@@ -1,41 +1,87 @@
 
-<div class="container">
-  <div class="row">
-    <div class="col-6">
-      <div class="card">
-        <div class="card-header">Login</div>
-        <form [formGroup]="form" (ngSubmit)="onSubmit()">
-          <div class="form-group">
-            <label for="username">Username</label>
-            <input type="text" formControlName="username" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
-            <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
-              <div *ngIf="f.username.errors.required">Username is required</div>
-            </div>
-          </div>
-          <div class="form-group">
-            <label for="password">Password</label>
-            <input type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
-            <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
-              <div *ngIf="f.password.errors.required">Password is required</div>
-            </div>
-          </div>
-          <div class="form-group">
-            <button [disabled]="loading" class="btn btn-primary">
-              <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
-              Login
-            </button>
-            <!--<a routerLink="../register" class="btn btn-link">Register</a>-->
-          </div>
-        </form>
-      </div>
-    </div>
-    <div class="col-6">
-      <div class="card">
-        <img src="../assets/images/iot.png" alt="IoT-Demo" height="360">
-      </div>
 
+<div class="form-container sign-in-container">
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <h4 class="header">Login to your <br /> account</h4>
+
+    <input type="text" formControlName="username" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" placeholder="Username" />
+    <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+      <div *ngIf="f.username.errors.required">Username is required</div>
+    </div>
+    <input type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" placeholder="Password" />
+    <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+      <div *ngIf="f.uPassword.errors.required">Password is required</div>
+    </div>
+    <!--<a href="#">Forgot your password?</a>-->
+    <button [disabled]="loading" class="btn btn-primary">
+      <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+      Login
+    </button>
+  </form>
+</div>
+<div class="overlay-container">
+  <div class="overlay">
+    <div class="overlay-panel overlay-right">
+      <img src="assets/images/logo1.png" alt="logo" class="logo" width="283">
+      <!--<h1>RENESAS</h1>
+      <p>If You are a new user Please Enter your details here</p>
+      <button class="ghost" (click)="onRegister()">Register here</button>-->
     </div>
   </div>
 </div>
-  <hr>
- 
+
+
+
+<!--<div class="container">
+  <div class="row">
+    <div class="card">
+      <div class="card-header">Login</div>
+      <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+<img src="assets/images/user.png" alt="Avatar" class="avatar">
+<div class="row">
+    <div class="col-4">
+      <label for="username">Username</label>
+    </div>
+    <div class="col-8">
+      <input type="text" formControlName="username" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" placeholder="Username" />
+      <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+        <div *ngIf="f.username.errors.required">Username is required</div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-4">
+      <label for="password">Password</label>
+    </div>
+    <div class="col-8">
+      <input type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" placeholder="Password" />
+      <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+        <div *ngIf="f.password.errors.required">Password is required</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="form-group">
+  <button [disabled]="loading" class="btn btn-primary">
+    <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+    Login
+  </button>
+<a routerLink="../register" class="btn btn-link">Register</a>
+</div>
+    </form>
+  </div>
+
+  <div class="card">
+    <div class="card-header">RENESAS</div>
+    <img src="../assets/images/iot.png" alt="IoT-Demo" height="350">
+  </div>
+
+
+
+</div>
+
+  </div>
+<hr>-->

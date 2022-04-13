@@ -40,7 +40,7 @@ export class DeviceService {
     debugger;
     var request = {
       deviceId: this.device.deviceId,
-      user: "admin"
+      user: localStorage.getItem('user')
     }
     return this.http.post(this.baseUrl + "getdevices", request)
       .pipe(
@@ -78,6 +78,20 @@ export class DeviceService {
       { headers: this.getHTTPHeaders() }).pipe(
         map((res: BaseResponseModel) => res)
       );
+  }
+
+  getSensorsData(model: any) {
+    debugger;
+    return this.http.post(this.baseUrl + "getsensordata", model)
+      .pipe(
+        map((resp: any) => {
+          debugger;
+          return resp;
+        }));
+  }
+
+  onRefersh() {
+
   }
 
   getHTTPHeaders(): HttpHeaders {

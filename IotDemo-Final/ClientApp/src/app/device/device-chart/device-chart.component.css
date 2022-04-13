@@ -1,0 +1,39 @@
+/*.table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}*/
+
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+tr:hover {
+  background-color: #ddd;
+}
+
+th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #29289d;
+  color: white;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  border: 1px solid black;
+  justify-content: center;
+  align-items: center;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+  border: 1px solid #ddd;
+}
+
+.chart-area {
+  border: 1px solid black;
+}

@@ -51,6 +51,7 @@ namespace IotDemo_Final
 
             app.UseRouting();
 
+
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(

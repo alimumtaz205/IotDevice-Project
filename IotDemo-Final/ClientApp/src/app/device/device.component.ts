@@ -59,15 +59,21 @@ export class DeviceComponent implements OnInit {
     private service: DeviceService) { }
 
   ngOnInit() {
-    //debugger;
-    this.getDevices(this.model);
+
+    if (!localStorage.getItem('user')) {
+      this.router.navigateByUrl('/');
+    }
+    else {
+      this.getDevices(this.model);
+    }
+   
   }
 
   getDevices(model: any) {
 
     this.service.getDevices(model).subscribe(
       (data: any) => {
-        //debugger;
+        debugger;
         console.log(data)
       
         //debugger;
@@ -99,21 +105,19 @@ export class DeviceComponent implements OnInit {
     this.datasource.filter = filterValue.trim().toLowerCase();
   }
 
-  addDevice(model: any): void {
-    //debugger;
+  addDevice(): void {
+    debugger;
     const dialogRef = this.matDialog.open(TabDeviceComponent, {
       disableClose: true,
-      //autoFocus: false,
       
       width: '60%',
      /* height: '40%'*/
     });
-    dialogRef.componentInstance.refreshGrid.subscribe((data) => {
-
-      setTimeout(() => {
-      }, 300);
-    });
-
+    dialogRef.componentInstance.refreshGrid
+      .subscribe(() =>
+       
+      this.onRefersh());
+    
   }
 
   viewDevice(data: any) {
@@ -156,5 +160,16 @@ export class DeviceComponent implements OnInit {
   navigateToDevice(row: any) {
     //debugger;
     this.router.navigateByUrl('chart');
+  }
+
+  logOut() {
+    localStorage.removeItem('user');
+    this.router.navigateByUrl('/');
+  }
+
+  onRefersh() {
+    debugger;
+    this.getDevices(this.model);
+    
   }
 }

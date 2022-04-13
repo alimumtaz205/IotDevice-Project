@@ -23,6 +23,15 @@ html {
 }
 
 .navbar {
-  background-color: #099725;
-  
+  background-color: #29289d;
+}
+
+.btn {
+  color: #ffffff;
+  background-color: #1917c1;
+}
+
+.btn:hover {
+  color: #ffffff;
+  background-color: #1f1e8a;
 }

@@ -35,9 +35,13 @@ export class DeviceChartComponent implements OnInit {
   deviceList: any;
   device: Device = new Device;
   deviceDetail: any;
+  deviceDetails: any;
   resCode: any;
   model: any;
   sensors: Sensors;
+  dateFromObj: any;
+  dateToObj: any;
+  cDate: any;
 
   constructor(
    // @Inject(MAT_DIALOG_DATA) public data: any,
@@ -50,74 +54,117 @@ export class DeviceChartComponent implements OnInit {
 
   ngOnInit() {
     debugger;
-    this.getSensorsList();
+    if (this.service.device == undefined) {
+      this.router.navigateByUrl('device');
+    }
+    else{
+      //this.alertify.alert("WORNING!!!","Please choose a date range, From and To")
+    }
+
+    this.getSensorsList(this.service.device);
     this.getDeviceDetail(this.service.device);
    
   }
   get f() { return this.form.controls; }
 
-  getSensorsList() {
+  getSensorsList(model: any) {
     debugger;
-    //this.service.getSensors().subscribe(
-      //(data: any) => {
-      //  debugger;
-      //  console.log(data.Sensors)
-      //  if (data.Sensors) {
-      //    this.sensors = data.Sensors;
+    var request = {
+      deviceId: model.deviceId,
+      startDate: "2022-03-10",
+      endDate: "2022-04-11"
+    }
 
-        //  for (let sensorlist in this.sensors)
-            this.chartOptions = {
-              chart: {
-                height: 350,
-                type: "line",
-                foreColor: '#6D6D6D'
-              },
-              series: [{
-                name: 'Temperature',
-                data: [15, 20, 25, 29, 33, 36]
-              }, {
-                name: 'Humidity',
-                type: 'line',
-                data: [37, 32, 27, 23, 26, 38]
-              }, {
-                name: 'Object Presence',
-                type: 'line',
-                data: [12.8, 0, 0, 16, 15, 10]
-              }
+
+    var request2 = {
+      deviceId: model.deviceId,
+      startDate: this.dateFromObj,
+      endDate: this.dateToObj
+    }
+    this.service.getSensorsData(request).subscribe(
+      (data: any) => {
+        var light_intensity = [];
+        //var heat = [];
+        //var objectPresence = [];
+        debugger;
+        console.log(data)
+        if (data.resCode == 100) {
+          this.deviceDetail = data.data;
+          for (var item of this.deviceDetail) {
+            light_intensity.push(item.light_Intensity)
+            //heat.push(item.heat)
+            //objectPresence.push(item.objectPresence)
+          }
+          this.chartOptions = {
+            chart: {
+              height: 350,
+              type: "line",
+              foreColor: '#6D6D6D'
+            },
+            series: [{
+              name: 'Temperature',
+              data: light_intensity
+            //}, {
+            //  name: 'Heat',
+            //  type: 'line',
+            //  data: heat
+            //}, {
+            //  name: 'Object Presence',
+            //  type: 'line',
+            //  data: objectPresence
+            }
+            ],
+
+            title: {
+              text: "Sensors"
+            },
+            xaxis: {
+              type: 'category',
+              categories: [
+                //[this.dateFromObj],
+                //[this.dateToObj]
+
+                ["2022-03-10"],
+                ["2022-04-11"]
               ],
-
-              title: {
-                text: "Sensors"
-              },
-              xaxis: {
-                type: 'category',
-                categories: [
-                  ['4 AM'],
-                  ['6 AM'],
-                  ['8 AM'],
-                  ['10 AM'],
-                  ['12 PM'],
-                  ['2 PM'],
-                  ['4 PM'],
-                  ['6 PM'],
-                  ['8 PM'],
-                  ['10 PM']
-                ],
-                labels: {
-                  show: true
-                }
+              labels: {
+                show: true
               }
-            };
+            }
+          };
+        }
 
-          debugger;
-      //  }
-      //  else {
-      //    this.alertify.success("An error occured !!!");
-      //  }
-      //  (error) => {
-      //    this.alertify.error("error");
-      //  }
-      //});
+      });
+  }
+
+  dateFrom(dateObject){
+    debugger;
+    console.log(dateObject.value)
+    const stringified = JSON.stringify(dateObject.value);
+    this.dateFromObj = stringified.substring(1, 11);
+    var date = new Date;
+    const currentDate = JSON.stringify(date)
+    this.cDate = currentDate.substring(1, 11)
+
+    //if (this.dateFromObj >= this.cDate) {
+    //  this.alertify.error("From Date should be less than Current Date");
+    //}
+
+  }
+
+  dateTo(dateObject) {
+    debugger;
+    
+    console.log(dateObject.value)
+    const stringified = JSON.stringify(dateObject.value);
+    this.dateToObj = stringified.substring(1, 11);
+
+    //if (this.dateFromObj >= this.dateToObj) {
+    //  this.alertify.error("To Date should be greater than From");
+    //}
+
+    this.getSensorsList(this.service.device);
+
   }
 
   getDeviceDetail(model) {
@@ -127,7 +174,7 @@ export class DeviceChartComponent implements OnInit {
         debugger;
         console.log(data)
         if (data.resCode == 100) {
-          this.deviceDetail = data.data[0];
+          this.deviceDetails = data.data[0];
         }
 
       });

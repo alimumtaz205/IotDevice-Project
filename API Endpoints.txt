@@ -1,0 +1,72 @@
+/api/IOTDemo/v1/registerdevice
+
+Request:
+[
+  {
+    "name": "string",
+    "description": "string",
+    "make": "string",
+    "deviceId": "string",
+    "softwareVersion": "string",
+    "sensorsName": "string",
+    "createdBy": "string"
+  }
+]
+
+Response:
+{
+  "isSuccess": true,
+  "resCode": "100",
+  "resDesc": "Device Added Successfully",
+  "data": null
+}
+
+/api/IOTDemo/v1/pushdevicedata
+Request:
+{
+  "deviceId": "SF-005",
+  "softwareVersion": "1",
+  "lightIntensity": "24"
+}
+Response:
+{
+  "resCode": 100,
+  "resDesc": "Device Sensor data added Successfully"
+}
+
+
+/api/IOTDemo/v1/getdevices
+
+Request:
+{
+  "deviceId": "75",
+  "user": "admin"
+}
+
+Response:
+{
+  "serviceRes": {
+    "resCode": 100,
+    "resDesc": ""
+  },
+  "isSuccess": true,
+  "resCode": "100",
+  "resDesc": "SUCCESS",
+  "data": []
+}
+
+/api/IOTDemo/v1/getsensordata
+Request:
+{
+  "deviceId": "75",
+  "startDate": "",
+  "endDate": ""
+}
+
+Response:
+{
+  "isSuccess": true,
+  "resCode": "100",
+  "resDesc": "SUCCESS",
+  "data": null
+}

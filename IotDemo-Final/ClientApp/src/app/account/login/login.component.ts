@@ -13,7 +13,8 @@ export class LoginComponent implements OnInit {
   form: FormGroup;
   loading = false;
   submitted = false;
-  userName: any;
+  username: any;
+  IsLoggedIn: boolean = false;
 
   constructor(
     private accountService: AccountService,
@@ -32,9 +33,7 @@ export class LoginComponent implements OnInit {
 
   onSubmit() {
     debugger;
-    this.userName = this.form.value.username;
-
-    localStorage.setItem('user', this.userName);
+    this.username = this.form.value.username;
 
     this.submitted = true;
     if (this.form.invalid) {
@@ -44,6 +43,9 @@ export class LoginComponent implements OnInit {
       this.form.value.username == "user" && this.form.value.password == "user")
     {
       this.alertify.success("login successful");
+
+      localStorage.setItem('user', this.username);
+
       this.router.navigateByUrl('device');
     }
     else {

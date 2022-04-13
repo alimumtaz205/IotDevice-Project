@@ -4,6 +4,13 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class AccountService {
-  
-  constructor() { }
+  IsLoggedIn: boolean;
+
+  constructor() {
+
+    //if (localStorage.getItem("user") === null) {
+    //  this.IsLoggedIn = true;
+    //}
+  }
+
 }

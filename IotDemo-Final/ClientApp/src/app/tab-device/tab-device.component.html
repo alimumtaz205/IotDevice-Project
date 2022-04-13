@@ -1,24 +1,26 @@
 <div class="row">
-  <div class="col-11">
-    <h5>Device onBoarding</h5>
-  </div>
+    <div class="col-0">
+      <mat-icon>devices</mat-icon>
+    </div>
+    <div class="col-10">
+      <h5>DEVICE ONBOARDING</h5>
+    </div>
     <div class="col-1">
       <button md-raised-button class="btn btn-danger" tooltip="Close" (click)="onClose()">
-        <mat-icon>close</mat-icon>
+        Close
+        <!--<mat-icon>close</mat-icon>-->
       </button>
-    
+
+    </div>
   </div>
-  </div>
-<hr />
-<mat-tab-group class="mat-tab">
-  <mat-tab label="Add Single Device">
+  <mat-tab-group class="mat-tab">
+    <mat-tab label="Add Single Device">
 
-    <app-add-device></app-add-device>
-  </mat-tab>
+      <app-add-device></app-add-device>
+    </mat-tab>
 
-  <mat-tab label="Add Bulk">
-    <app-bluck-upload></app-bluck-upload>
-  </mat-tab>
-</mat-tab-group>
-
+    <mat-tab label="Add Bulk">
+      <app-bluck-upload></app-bluck-upload>
+    </mat-tab>
+  </mat-tab-group>
 

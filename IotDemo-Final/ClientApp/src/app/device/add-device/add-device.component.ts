@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 import { Device } from '../../_models/Device';
 import { AlertifyService } from '../../_services/alertify.service';
 import { DeviceService } from '../../_services/device.service';
+import { DeviceComponent } from '../device.component';
 
 
 @Component({
@@ -63,14 +64,17 @@ export class AddDeviceComponent implements OnInit {
           else {
             this.alertify.success(data.resDesc);
             this.onClose();
+           
           }
         }
         else {
           this.alertify.error(data.resDesc);
           this.onClose();
+         
         }});
   }
 
+  
   onClose() {
     this.dialogRef.close();
   }

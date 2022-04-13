@@ -11,7 +11,7 @@
       </div>
 
       <div class="col-10 text-right">
-        <button mat-raised-button class="btn btn-success" (click)="backDashboard()">
+        <button mat-raised-button class="btn btn-primary" (click)="backDashboard()">
           <!--<mat-icon>add</mat-icon>-->
           Back
         </button>
@@ -21,65 +21,89 @@
     </mat-toolbar-row>
   </mat-toolbar>
 
-  <!--<mat-form-field appearance="fill">
-    <mat-label>Enter a date range</mat-label>
-    <mat-date-range-input [rangePicker]="picker">
-      <input matStartDate placeholder="Start date">
-      <input matEndDate placeholder="End date">
-    </mat-date-range-input>
-    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-    <mat-date-range-picker #picker></mat-date-range-picker>
+  <mat-card class="table-detail">
+
+    <div class="row chart-area">
+      <div class="col-6">
+
+        <!--<mat-form-field>
+    <input matInput [matDatepicker]="dpFrom" placeholder="From" (dateChange)="dateFrom($event)" disabled>
+    <mat-datepicker-toggle matSuffix [for]="dpFrom"></mat-datepicker-toggle>
+    <mat-datepicker touchUi #dpFrom disabled="false"></mat-datepicker>
   </mat-form-field>-->
 
+        <!--<mat-form-field>
+    <input matInput [matDatepicker]="dpTo" placeholder="To" (dateChange)="dateTo($event)" disabled>
+    <mat-datepicker-toggle matSuffix [for]="dpTo"></mat-datepicker-toggle>
+    <mat-datepicker touchUi #dpTo disabled="false"></mat-datepicker>
+  </mat-form-field>-->
 
-  <mat-card class="table-detail">
+        <h6>SENSORS DATA</h6>
+        <table class="table table-centered table-hover mb-0">
+          <thead></thead>
+          <tr>
+            <th>Device Id</th>
+            <!--<th>Date From</th>
+            <th>Date To</th>-->
+            <th>Light Intensity</th>
+            <!--<th>Heat</th>
+            <th>Heat </th>-->
+          </tr>
+          <tr *ngFor="let sensors of deviceDetail">
+            <td>{{sensors?.deviceId}}</td>
+            <!--<td>{{startDate}}</td>
+            <td>{{sensors?.created}}</td>-->
+            <td>{{sensors?.light_Intensity}}</td>
+            <!--<td>{{sensors?.heat}}</td>
+            <td>{{sensors?.objectPresence}}</td>-->
+          </tr>
+        </table>
+
+      </div>
+      <div class="col-6">
+
+        <div style="text-align:center">
+          <apx-chart [series]="chartOptions?.series"
+                     [chart]="chartOptions?.chart"
+                     [xaxis]="chartOptions?.xaxis"
+                     [title]="chartOptions?.title"></apx-chart>
+        </div>
+      </div>
+    </div>
+
     <div class="row">
       <!--Table Area-->
-      <div class="col-5">
+      <div class="col-12">
+
+
+        <h4>DEVICE INFORMATION</h4>
         <div class="table-responsive">
           <!--<table class="table table-centered table-hover mb-0" *ngFor="let device of deviceList; let i = index">-->
           <table class="table table-centered table-hover mb-0">
-            <thead>{{deviceDetail.deviceId}}</thead>
+            <thead></thead>
             <tr>
+              <th>Device Id:</th>
               <th>Device Name:</th>
-              <td>{{deviceDetail.description}}</td>
-            </tr>
-            <tr>
               <th>Description:</th>
-              <td>{{deviceDetail.description}}</td>
-            </tr>
-            <tr>
               <th>Current Version:</th>
-              <td>{{deviceDetail.currentVersion}}</td>
-            </tr>
-            <tr>
               <th>Is Update Available:</th>
-              <td>{{isUpdateAvailable.name}}</td>
-            </tr>
-            <tr>
               <th>Updated Version:</th>
-              <td>{{device.updatedVersion}}</td>
             </tr>
             <tr>
-              <th>softwareVersion:</th>
-              <td>{{device.name}}</td>
+              <td>{{deviceDetails?.deviceId}}</td>
+              <td>{{deviceDetails?.deviceName}}</td>
+              <td>{{deviceDetails?.description}}</td>
+              <td>{{deviceDetails?.currentVersion}}</td>
+              <td>{{deviceDetails?.isUpdateAvailable === 1? 'No' : 'Yes'}}</td>
+              <td>{{deviceDetails?.updatedVersion}}</td>
             </tr>
 
           </table>
         </div>
+
       </div>
-      <div class="col-7">
-
-        <div style="text-align:center">
-          <apx-chart [series]="chartOptions.series"
-                     [chart]="chartOptions.chart"
-                     [xaxis]="chartOptions.xaxis"
-                     [title]="chartOptions.title"></apx-chart>
-        </div>
-      </div>
-
-
     </div>
+
   </mat-card>
 </div>
   <!--</form>-->

@@ -9,6 +9,8 @@ import { DeviceService } from '../../_services/device.service';
 import { BaseResponseModel } from '../../_models/_base.response.model';
 import { finalize } from 'rxjs/operators';
 import { clear } from 'console';
+import { MatDialogRef } from '@angular/material';
+import { AddDeviceComponent } from '../add-device/add-device.component';
 
 @Component({
   selector: 'app-bluck-upload',
@@ -36,7 +38,9 @@ export class BluckUploadComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private alertify: AlertifyService,
-    private deviceService: DeviceService) { }
+    private deviceService: DeviceService,
+    private dialogRef: MatDialogRef<AddDeviceComponent>
+  ) { }
 
   ngOnInit() {
     this.showTable = false;
@@ -148,8 +152,9 @@ export class BluckUploadComponent implements OnInit {
         debugger;
         if (data.resCode == "100" && data.isSuccess == true)
         {
-            this.alertify.success(data.resDesc);
-         
+          this.alertify.success(data.resDesc);
+         // window.location.reload();
+          this.onClose();
         }
         else
           this.alertify.error(data.resDesc);
@@ -168,5 +173,9 @@ export class BluckUploadComponent implements OnInit {
 
   onAlertClose($event) {
     this.invalidFileFormat = false;
+  }
+
+  onClose() {
+    this.dialogRef.close();
   }
 }
