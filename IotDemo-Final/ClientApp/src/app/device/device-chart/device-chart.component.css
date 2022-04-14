@@ -15,8 +15,10 @@ th {
   padding-top: 12px;
   padding-bottom: 12px;
   text-align: left;
-  background-color: #29289d;
+  background-color: #494454;
   color: white;
+  font-weight: normal;
+  font-size: 12px;
 }
 
 table {
@@ -32,8 +34,9 @@ th, td {
   text-align: left;
   padding: 8px;
   border: 1px solid #ddd;
+  font-size: 12px;
 }
 
-.chart-area {
-  border: 1px solid black;
-}
+/*.chart-area {*/
+/*  border: 1px solid black;*/
+/*}*/

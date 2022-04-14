@@ -1,109 +1,138 @@
 <div class="container">
-  <mat-toolbar>
-    <mat-toolbar-row>
-      <!--<mat-icon>subject</mat-icon>-->
-      <div class="col-2">
+  <mat-card>
+    <mat-toolbar style="min-height: auto;">
+      <mat-toolbar-row class="bg-transparent p-0 " style="height: auto;">
+        <!--<mat-icon>subject</mat-icon>-->
+        <div class="col-lg-10 p-0 pl-2" style=" border-bottom: 1px solid #2A289D ;">
 
-        <!--<input matInput (keyup)="applyFilter($event)" id="filterEelement" placeholder="Enter to search...">-->
-        <h5>DEVICE DETAIL</h5>
-        <!--<mat-icon>search</mat-icon>-->
+          <!--<input matInput (keyup)="applyFilter($event)" id="filterEelement" placeholder="Enter to search...">-->
+          <h5 class="text-primary py-1">Device Detail</h5>
+          <!--<mat-icon>search</mat-icon>-->
 
-      </div>
-
-      <div class="col-10 text-right">
-        <button mat-raised-button class="btn btn-primary" (click)="backDashboard()">
-          <!--<mat-icon>add</mat-icon>-->
-          Back
-        </button>
-
-      </div>
-
-    </mat-toolbar-row>
-  </mat-toolbar>
-
-  <mat-card class="table-detail">
-
-    <div class="row chart-area">
-      <div class="col-6">
-
-        <!--<mat-form-field>
-    <input matInput [matDatepicker]="dpFrom" placeholder="From" (dateChange)="dateFrom($event)" disabled>
-    <mat-datepicker-toggle matSuffix [for]="dpFrom"></mat-datepicker-toggle>
-    <mat-datepicker touchUi #dpFrom disabled="false"></mat-datepicker>
-  </mat-form-field>-->
-
-        <!--<mat-form-field>
-    <input matInput [matDatepicker]="dpTo" placeholder="To" (dateChange)="dateTo($event)" disabled>
-    <mat-datepicker-toggle matSuffix [for]="dpTo"></mat-datepicker-toggle>
-    <mat-datepicker touchUi #dpTo disabled="false"></mat-datepicker>
-  </mat-form-field>-->
-
-        <h6>SENSORS DATA</h6>
-        <table class="table table-centered table-hover mb-0">
-          <thead></thead>
-          <tr>
-            <th>Device Id</th>
-            <!--<th>Date From</th>
-            <th>Date To</th>-->
-            <th>Light Intensity</th>
-            <!--<th>Heat</th>
-            <th>Heat </th>-->
-          </tr>
-          <tr *ngFor="let sensors of deviceDetail">
-            <td>{{sensors?.deviceId}}</td>
-            <!--<td>{{startDate}}</td>
-            <td>{{sensors?.created}}</td>-->
-            <td>{{sensors?.light_Intensity}}</td>
-            <!--<td>{{sensors?.heat}}</td>
-            <td>{{sensors?.objectPresence}}</td>-->
-          </tr>
-        </table>
-
-      </div>
-      <div class="col-6">
-
-        <div style="text-align:center">
-          <apx-chart [series]="chartOptions?.series"
-                     [chart]="chartOptions?.chart"
-                     [xaxis]="chartOptions?.xaxis"
-                     [title]="chartOptions?.title"></apx-chart>
         </div>
-      </div>
-    </div>
 
-    <div class="row">
-      <!--Table Area-->
-      <div class="col-12">
+        <div class="col-lg-2 p-0 text-right">
+          <!--        <button mat-raised-button class="btn btn-primary" (click)="backDashboard()">-->
+          <!--          &lt;!&ndash;<mat-icon>add</mat-icon>&ndash;&gt;-->
+          <!--          Back-->
+          <!--        </button>-->
 
+          <button type="button" class="btn text-right text-second bg-white" style="border: 1px solid #00ADEE" (click)="backDashboard()">
+            <svg class="mr-2" width="15" height="15" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M9.99996 1.99992C10.0001 1.79137 9.93513 1.58797 9.814 1.41821C9.69287 1.24844 9.52169 1.12079 9.32442 1.05312C9.12715 0.985457 8.91366 0.98116 8.71383 1.04083C8.514 1.10051 8.33783 1.22116 8.20996 1.38592L1.20996 10.3859C1.07341 10.5615 0.999268 10.7775 0.999268 10.9999C0.999268 11.2223 1.07341 11.4384 1.20996 11.6139L8.20996 20.6139C8.33783 20.7787 8.514 20.8993 8.71383 20.959C8.91366 21.0187 9.12715 21.0144 9.32442 20.9467C9.52169 20.879 9.69287 20.7514 9.814 20.5816C9.93513 20.4119 10.0001 20.2085 9.99996 19.9999V16.0099C15.379 16.1219 17.963 17.1429 19.261 18.2529C20.495 19.3079 20.721 20.5489 20.956 21.8489L21.017 22.1839C21.0618 22.4236 21.1928 22.6387 21.3851 22.7886C21.5774 22.9385 21.8179 23.013 22.0614 22.998C22.3048 22.983 22.5343 22.8796 22.7068 22.7072C22.8793 22.5348 22.9828 22.3053 22.998 22.0619C23.169 19.3139 22.912 15.3319 20.971 12.0009C19.087 8.76792 15.694 6.28192 9.99996 6.02192V1.99992Z" fill="#00ADEE"/>
+            </svg>
 
-        <h4>DEVICE INFORMATION</h4>
-        <div class="table-responsive">
-          <!--<table class="table table-centered table-hover mb-0" *ngFor="let device of deviceList; let i = index">-->
+            Back
+
+          </button>
+
+        </div>
+
+      </mat-toolbar-row>
+    </mat-toolbar>
+    <div class="table-detail border-0  p-0">
+
+      <div class="row pt-0 chart-area px-3 mt-3">
+        <div class="col-6 p-0">
+          <h6>Sensors Data</h6>
           <table class="table table-centered table-hover mb-0">
             <thead></thead>
             <tr>
-              <th>Device Id:</th>
-              <th>Device Name:</th>
-              <th>Description:</th>
-              <th>Current Version:</th>
-              <th>Is Update Available:</th>
-              <th>Updated Version:</th>
+              <th>Device Id</th>
+              <!--<th>Date From</th>
+              <th>Date To</th>-->
+              <th>Light Intensity</th>
+              <!--<th>Heat</th>
+              <th>Heat </th>-->
             </tr>
-            <tr>
-              <td>{{deviceDetails?.deviceId}}</td>
-              <td>{{deviceDetails?.deviceName}}</td>
-              <td>{{deviceDetails?.description}}</td>
-              <td>{{deviceDetails?.currentVersion}}</td>
-              <td>{{deviceDetails?.isUpdateAvailable === 1? 'No' : 'Yes'}}</td>
-              <td>{{deviceDetails?.updatedVersion}}</td>
+            <tr *ngFor="let sensors of deviceDetail">
+              <td>{{sensors?.deviceId}}</td>
+              <!--<td>{{startDate}}</td>
+              <td>{{sensors?.created}}</td>-->
+              <td>{{sensors?.light_Intensity}}</td>
+              <!--<td>{{sensors?.heat}}</td>
+              <td>{{sensors?.objectPresence}}</td>-->
             </tr>
-
           </table>
+          <!--<mat-form-field>
+      <input matInput [matDatepicker]="dpFrom" placeholder="From" (dateChange)="dateFrom($event)" disabled>
+      <mat-datepicker-toggle matSuffix [for]="dpFrom"></mat-datepicker-toggle>
+      <mat-datepicker touchUi #dpFrom disabled="false"></mat-datepicker>
+    </mat-form-field>-->
+
+          <!--<mat-form-field>
+      <input matInput [matDatepicker]="dpTo" placeholder="To" (dateChange)="dateTo($event)" disabled>
+      <mat-datepicker-toggle matSuffix [for]="dpTo"></mat-datepicker-toggle>
+      <mat-datepicker touchUi #dpTo disabled="false"></mat-datepicker>
+    </mat-form-field>-->
+
+
+
+        </div>
+        <div class="col-6 pr-0">
+          <mat-card style="height: 400px;">
+
+            <div style="text-align:center">
+              <apx-chart [series]="chartOptions?.series"
+                         [chart]="chartOptions?.chart"
+                         [xaxis]="chartOptions?.xaxis"
+                         [title]="chartOptions?.title"></apx-chart>
+            </div>
+          </mat-card>
+        </div>
+      </div>
+
+
+
+    </div>
+
+
+    <div class="row p-3 mt-0">
+      <!--Table Area-->
+      <div class="col-12 p-0">
+        <div class="col-lg-12 p-0" style="  border-bottom: 1px solid #2A289D; background-color: #eff2f5;">
+
+
+          <h5 class="text-primary mb-0 py-2 mx-2 ">Device Information</h5>
+
+        </div>
+        <div class="row mt-0">
+          <div class="col-lg-12">
+
+              <div class="table-responsive mt-2">
+                <!--<table class="table table-centered table-hover mb-0" *ngFor="let device of deviceList; let i = index">-->
+                <table class="table table-centered table-hover mb-0">
+                  <thead></thead>
+                  <tr>
+                    <th>Device Id:</th>
+                    <th>Device Name:</th>
+                    <th>Description:</th>
+                    <th>Current Version:</th>
+                    <th>Is Update Available:</th>
+                    <th>Updated Version:</th>
+                  </tr>
+                  <tr>
+                    <td>{{deviceDetails?.deviceId}}</td>
+                    <td>{{deviceDetails?.deviceName}}</td>
+                    <td>{{deviceDetails?.description}}</td>
+                    <td>{{deviceDetails?.currentVersion}}</td>
+                    <td>{{deviceDetails?.isUpdateAvailable === 1? 'No' : 'Yes'}}</td>
+                    <td>{{deviceDetails?.updatedVersion}}</td>
+                  </tr>
+
+                </table>
+              </div>
+
+          </div>
         </div>
 
       </div>
     </div>
-
   </mat-card>
+
+
+
+
+
 </div>
   <!--</form>-->

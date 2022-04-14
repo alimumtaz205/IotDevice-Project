@@ -25,11 +25,16 @@ html {
 .navbar {
   background-color: #29289d;
 }
-
-.btn {
-  color: #ffffff;
-  background-color: #1917c1;
+.login-button{
+  border-radius: 3px;
+  background: #00ADEE;
+  border: none;
+  color: white;
 }
+/*.btn {*/
+/*  color: #ffffff;*/
+/*  background-color: #1917c1;*/
+/*}*/
 
 .btn:hover {
   color: #ffffff;

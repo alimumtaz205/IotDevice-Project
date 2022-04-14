@@ -1,24 +1,48 @@
 <div class="container">
   <mat-toolbar>
-    <mat-toolbar-row>
+    <mat-toolbar-row class="bg-transparent px-0">
       <!--<mat-icon>subject</mat-icon>-->
 
-      <div class="col-9">
-        <mat-form-field>
-          <input matInput (keyup)="applyFilter($event)" id="filterEelement" placeholder="Enter to search...">
-          <!--<mat-icon>search</mat-icon>-->
-        </mat-form-field>
+      <div class="col-lg-4 p-0">
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="basic-addon1"><mat-icon matPrefix style="color: #00ADEE" class="my-icon">search</mat-icon></span>
+          </div>
+          <input type="text" class="form-control" placeholder="Search here...." aria-label="Username" aria-describedby="basic-addon1">
+        </div>
+<!--        <mat-form-field appearance="fill" class="fld p-0">-->
+<!--          <input matInput (keyup)="applyFilter($event)" id="filterEelement" placeholder="Enter to search...">-->
+
+<!--          <mat-icon matPrefix class="my-icon mr-3 mt-2">search</mat-icon>-->
+<!--        </mat-form-field>-->
       </div>
 
-      <div class="col-3">
-        <button mat-raised-button class="btn btn-primary" (click)="addDevice()">
-          <!--<mat-icon>add</mat-icon>-->
-          Add Device
-        </button>
-        <button mat-raised-button class="btn btn-primary" (click)="onRefersh()">
-          <!--<mat-icon>add</mat-icon>-->
+      <div class="col-lg-8 text-right p-0">
+        <button type="button" class="btn text-right text-second" style="border: 1px solid #00ADEE">
+          <svg class="mr-2" width="14" height="19" viewBox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M17.7795 10.625C17.2066 10.5208 16.816 10.7292 16.6077 11.25C16.165 12.7604 15.3316 13.9714 14.1077 14.8828C12.9097 15.7682 11.5295 16.224 9.96704 16.25C8.63892 16.224 7.441 15.8854 6.37329 15.2344C5.30558 14.5573 4.47225 13.6458 3.87329 12.5H7.77954C8.35246 12.4479 8.66496 12.1354 8.71704 11.5625C8.66496 10.9896 8.36548 10.6771 7.8186 10.625H1.5686C0.995687 10.6771 0.683187 10.9896 0.631104 11.5625V17.8125C0.683187 18.3854 0.995687 18.6979 1.5686 18.75C2.14152 18.6979 2.45402 18.3854 2.5061 17.8125V13.8281C3.3134 15.1302 4.36808 16.1719 5.67017 16.9531C6.97225 17.7083 8.40454 18.099 9.96704 18.125C11.9462 18.099 13.691 17.513 15.2014 16.3672C16.7379 15.2214 17.7926 13.7109 18.3655 11.8359C18.4957 11.263 18.3004 10.8594 17.7795 10.625ZM18.4436 0C17.8707 0.0520833 17.5582 0.364583 17.5061 0.9375V4.92188C16.6988 3.61979 15.6441 2.57812 14.342 1.79688C13.04 1.04167 11.5946 0.651042 10.0061 0.625C8.02694 0.651042 6.28215 1.23698 4.77173 2.38281C3.23527 3.52865 2.18058 5.03906 1.60767 6.91406C1.5035 7.48698 1.71183 7.8776 2.23267 8.08594C2.80558 8.1901 3.19621 7.98177 3.40454 7.46094C3.87329 5.97656 4.6936 4.77865 5.86548 3.86719C7.0634 2.98177 8.4436 2.52604 10.0061 2.5C11.3342 2.52604 12.5321 2.86458 13.5999 3.51562C14.6676 4.19271 15.5139 5.10417 16.1389 6.25H12.1936C11.6207 6.30208 11.3082 6.61458 11.2561 7.1875C11.3082 7.76042 11.6207 8.07292 12.1936 8.125H18.4436C19.0165 8.07292 19.329 7.76042 19.3811 7.1875V0.9375C19.329 0.364583 19.0165 0.0520833 18.4436 0Z" fill="#00ADEE"/>
+        </svg>
           Refresh
+
         </button>
+
+        <button type="button" class="ml-3 btn text-right bg-second" style="border: 1px solid #00ADEE">
+          <svg class="mr-2" width="14" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M16.25 8.125C16.1979 8.69792 15.8854 9.01042 15.3125 9.0625H9.0625V15.3125C9.01042 15.8854 8.69792 16.1979 8.125 16.25C7.55208 16.1979 7.23958 15.8854 7.1875 15.3125V9.0625H0.9375C0.364583 9.01042 0.0520833 8.69792 0 8.125C0.0520833 7.55208 0.364583 7.23958 0.9375 7.1875H7.1875V0.9375C7.23958 0.364583 7.55208 0.0520833 8.125 0C8.69792 0.0520833 9.01042 0.364583 9.0625 0.9375V7.1875H15.3125C15.8854 7.23958 16.1979 7.55208 16.25 8.125Z" fill="white"/>
+          </svg>
+          Add Device
+
+        </button>
+
+
+<!--        <button class="btn btn-primary" (click)="addDevice()">-->
+<!--          &lt;!&ndash;<mat-icon>add</mat-icon>&ndash;&gt;-->
+<!--          <mat-icon class="mr-3 text-white">add</mat-icon> Add Device-->
+<!--        </button>-->
+<!--        <button class="btn btn-primary" (click)="onRefersh()">-->
+<!--          &lt;!&ndash;<mat-icon>add</mat-icon>&ndash;&gt;-->
+<!--          <mat-icon class="mr-3 text-white">sync</mat-icon>Refresh-->
+<!--        </button>-->
 
         <!--<button mat-raised-button class="btn btn-log" (click)="logOut()">-->
           <!--<mat-icon>add</mat-icon>-->
@@ -28,17 +52,17 @@
 
 </mat-toolbar-row>
   </mat-toolbar>
-  <div class="row mt-4">
+  <div class="row mt-0">
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 
-      <div class="mat-elevation-z8">
+      <div>
 
-        <table mat-table *ngIf="datasource" [dataSource]="datasource" matSort class="table" id="excel-table">
+        <table mat-table *ngIf="datasource" [dataSource]="datasource" matSort class="table" id="excel-table" >
 
           <ng-container *ngFor="let column of columns" [matColumnDef]="column.columnDef">
 
             <mat-header-cell *matHeaderCellDef mat-sort-header [style.min-width]="column?.width"
-                             [style.max-width]="column?.width" [style.display]="column?.hide === true ? 'none' : ''">
+                             [style.max-width]="column?.width" [style.display]="column?.hide === true ? 'none' : ''" style="background: #494454 !important;  font-weight: normal;">
               {{ column.header }}
             </mat-header-cell>
             <mat-cell *matCellDef="let row" [style.min-width]="column?.width" [style.max-width]="column?.width">
@@ -47,16 +71,21 @@
 
               </div>
 
-              <div *ngIf="column.columnDef === 'action'" class="table-edit">
+              <div *ngIf="column.columnDef === 'action'" class="bg-transparent table-edit ">
                 <a style="cursor: pointer;" (click)="viewDevice(row)" matTooltip="View Device">
-                  <mat-icon>view_list</mat-icon>
+                  <svg width="20" height="20" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M16 21C17.1046 21 18 20.1046 18 19C18 17.8954 17.1046 17 16 17C14.8954 17 14 17.8954 14 19C14 20.1046 14.8954 21 16 21Z" fill="#00ADEE"/>
+                    <path d="M23.777 18.479C23.1591 16.9049 22.0929 15.5467 20.7105 14.5728C19.3281 13.5988 17.6902 13.052 16 13C14.3098 13.052 12.6719 13.5988 11.2895 14.5728C9.9071 15.5467 8.84088 16.9049 8.223 18.479L8 19L8.223 19.521C8.84088 21.0951 9.9071 22.4533 11.2895 23.4272C12.6719 24.4012 14.3098 24.948 16 25C17.6902 24.948 19.3281 24.4012 20.7105 23.4272C22.0929 22.4533 23.1591 21.0951 23.777 19.521L24 19L23.777 18.479ZM16 23C15.2089 23 14.4355 22.7654 13.7777 22.3259C13.1199 21.8864 12.6072 21.2616 12.3045 20.5307C12.0017 19.7998 11.9225 18.9956 12.0769 18.2196C12.2312 17.4437 12.6122 16.731 13.1716 16.1716C13.731 15.6122 14.4437 15.2312 15.2196 15.0769C15.9956 14.9225 16.7998 15.0017 17.5307 15.3045C18.2616 15.6072 18.8864 16.1199 19.3259 16.7777C19.7654 17.4355 20 18.2089 20 19C19.9987 20.0605 19.5768 21.0771 18.827 21.827C18.0771 22.5768 17.0605 22.9987 16 23V23Z" fill="#00ADEE"/>
+                    <path d="M27 3H5C4.46957 3 3.96086 3.21071 3.58579 3.58579C3.21071 3.96086 3 4.46957 3 5V27C3 27.5304 3.21071 28.0391 3.58579 28.4142C3.96086 28.7893 4.46957 29 5 29H27C27.5304 29 28.0391 28.7893 28.4142 28.4142C28.7893 28.0391 29 27.5304 29 27V5C29 4.46957 28.7893 3.96086 28.4142 3.58579C28.0391 3.21071 27.5304 3 27 3ZM5 5H27V9H5V5ZM5 27V11H27V27H5Z" fill="#00ADEE"/>
+                  </svg>
+
                 </a>
               </div>
 
 
             </mat-cell>
           </ng-container>
-          <mat-header-row *matHeaderRowDef="displayedColumn; sticky:true"></mat-header-row>
+          <mat-header-row *matHeaderRowDef="displayedColumn; sticky:true" style="background: #494454 !important; font-weight: normal;"></mat-header-row>
           <mat-row *matRowDef="let row; columns: displayedColumn;" (mouseover)="row.hovered = true"
                    (mouseout)="row.hovered = false" [ngClass]="{hovered: row.hovered,  highlighted: selection.isSelected(row)}"
                    (click)="selection.select(row)" class="element-row" matRipple></mat-row>
@@ -65,5 +94,6 @@
       <mat-paginator pageSize="10" [pageSizeOptions]="[5, 10, 20, 50, 100, 500]" showFirstLastButtons></mat-paginator>
 
     </div>
+
   </div>
   </div>

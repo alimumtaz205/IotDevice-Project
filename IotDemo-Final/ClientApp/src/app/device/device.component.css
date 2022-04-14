@@ -1,5 +1,5 @@
 .mat-form-field {
- 
+
     font-size: 12px;
 }
 
@@ -9,4 +9,11 @@
 
 .container {
   width: 100%;
+}
+.mat-form-field-infix{
+  margin: 0px;
+}
+.mat-row .mat-column-deviceId{
+  font-weight: bold;
+  color: #29289d;
 }

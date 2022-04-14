@@ -76,17 +76,55 @@ form {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  padding: 0 50px;
+  padding: 0 0;
   height: 100%;
   text-align: center;
 }
 
+.login-button:hover {
+  color: white;
+  text-decoration: none;
+}
+
+.position-relative  .back-image{
+  top: -94px;
+  left: 94px;
+  width: 260px;
+  position: absolute;
+}
+
+.login-button{
+  border-radius: 6px;
+  background: #00ADEE;
+  border: none;
+}
+
+.welcome-text{
+  font-weight: 500;
+}
+.login-card{
+  border-radius: 6px;
+}
+
+label{
+  margin: 0px;
+  font-size: 12px;
+}
 input {
   background-color: #eee;
   border: none;
   padding: 12px 15px;
   margin: 8px 0;
-  width: 50%;
+
+}
+.input-box input{
+  padding-left: 35px;
+}
+.position-relative
+  svg {
+  width: 14px;
+  top: 8px;
+  left: 10px;
 }
 
 .container {
